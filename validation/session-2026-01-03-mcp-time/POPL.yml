@@ -1,0 +1,58 @@
+popl:
+  spec: popl-entry-v0.0
+
+entry:
+  id: session-2026-01-03-mcp-time
+  title: "Validation: MCP Time Server (@modelcontextprotocol/server-time)"
+  observed_at: "2026-01-03T08:27:41Z"
+
+target:
+  type: mcp-server
+  name: "@modelcontextprotocol/server-time"
+  version: "N/A"
+  status: "Package not found in npm registry"
+
+trust:
+  level: 0
+  label: "Recorded"
+
+artifacts:
+  - path: events.json
+    hash: "sha256:b6c279b2a350a29a6e451f65898ef0e3006580a60e78076ed053d79a6bc7703f"
+    format: "jsonl"
+    event_count: 9
+
+findings:
+  - type: "package_unavailable"
+    severity: "error"
+    message: "Package '@modelcontextprotocol/server-time' not found in npm registry (404)"
+    evidence: "npm error 404 Not Found - GET https://registry.npmjs.org/@modelcontextprotocol%2fserver-time"
+  
+  - type: "initialization_failure"
+    severity: "error"
+    message: "MCP server initialization failed due to package unavailability"
+    error_code: "Process exited with code 1"
+
+validation_environment:
+  tool: "proofscan"
+  tool_version: "0.9.1"
+  node_version: "v20.19.6"
+  npm_version: "10.8.2"
+  protocol_version: "2024-11-05"
+  session_id: "904de184-1271-48eb-a275-56d1443d52d0"
+
+notes: |
+  Attempted to validate the MCP time server package using proofscan.
+  The package reference '@modelcontextprotocol/server-time' appears in various
+  documentation and examples but is not actually published to npm.
+  
+  This validation session captures the failure mode when attempting to connect
+  to a non-existent MCP server package, demonstrating the importance of
+  verifying package availability before deployment.
+  
+  The events log contains 9 protocol events including:
+  - Connection attempt with npx command
+  - Transport connection established
+  - Initialize request sent
+  - npm 404 error responses
+  - Process exit with error code 1

@@ -1,0 +1,40 @@
+[
+  {
+    "type": "connector",
+    "id": "mcp-time",
+    "label": "mcp-time",
+    "meta": {
+      "session_count": 1
+    },
+    "children": [
+      {
+        "type": "session",
+        "id": "904de184-1271-48eb-a275-56d1443d52d0",
+        "label": "904de184... (1 rpcs, 9 events)",
+        "meta": {
+          "connector_id": "mcp-time",
+          "started_at": "2026-01-03T08:26:16.629Z",
+          "ended_at": "2026-01-03T08:26:17.407Z",
+          "exit_reason": "error",
+          "duration_ms": 778,
+          "rpc_count": 1,
+          "event_count": 9
+        },
+        "children": [
+          {
+            "type": "rpc",
+            "id": "1",
+            "label": "? initialize (id=1)",
+            "meta": {
+              "method": "initialize",
+              "success": null,
+              "error_code": null,
+              "request_ts": "2026-01-03T08:26:16.772Z",
+              "response_ts": null
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
