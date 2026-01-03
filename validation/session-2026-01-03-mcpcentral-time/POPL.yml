@@ -1,0 +1,87 @@
+popl:
+  spec: popl-entry-v0.0
+
+entry:
+  id: session-2026-01-03-mcpcentral-time
+  title: "Validation: MCP Central Time Server (@mcpcentral/mcp-time)"
+  observed_at: "2026-01-03T10:01:48Z"
+
+target:
+  type: mcp-server
+  name: "@mcpcentral/mcp-time"
+  version: "0.0.3"
+  status: "success"
+
+trust:
+  level: 0
+  label: "Recorded"
+
+artifacts:
+  - path: events.json
+    hash: "sha256:984cc0567a36a561cb086c662c6f4d2f060ffe7e15456e811d30d899c1a704ad"
+    format: "jsonl"
+    event_count: 9
+  - path: tree.json
+    format: "json"
+
+findings:
+  - type: "initialization_success"
+    severity: "info"
+    message: "MCP server initialized successfully with protocol version 2024-11-05"
+    details:
+      server_name: "mcp-time"
+      server_version: "0.0.3"
+      protocol_version: "2024-11-05"
+      initialization_time_ms: 5575
+  
+  - type: "tools_discovered"
+    severity: "info"
+    message: "Successfully discovered 6 tools via tools/list"
+    tools:
+      - name: "current_time"
+        description: "Get current time in UTC and specified timezone"
+      - name: "relative_time"
+        description: "Calculate relative time from now to a given time string"
+      - name: "days_in_month"
+        description: "Get the number of days in a month"
+      - name: "get_timestamp"
+        description: "Convert a date-time string to Unix timestamp in milliseconds"
+      - name: "convert_time"
+        description: "Convert time between timezones"
+      - name: "get_week_year"
+        description: "Get week number and year for a given date"
+  
+  - type: "protocol_compliance"
+    severity: "info"
+    message: "Server supports MCP protocol 2024-11-05 with tools capability"
+    capabilities:
+      tools:
+        listChanged: true
+
+validation_environment:
+  tool: "proofscan"
+  tool_version: "0.9.1"
+  node_version: "v20.19.6"
+  npm_version: "10.8.2"
+  protocol_version: "2024-11-05"
+  session_id: "14cff79d-1b96-4b48-b772-de2fc2bca6f2"
+
+notes: |
+  Successfully validated the MCP Central Time Server package using proofscan.
+  
+  The server initialized correctly and exposed 6 time-related tools through
+  the MCP protocol. All protocol interactions completed successfully:
+  - Connection established via stdio transport
+  - Initialize handshake completed (5.6s latency)
+  - Tools list retrieved (9ms latency)
+  - Clean disconnection
+  
+  This validation demonstrates a working MCP server implementation that
+  provides time and timezone utilities. The server correctly implements
+  the 2024-11-05 protocol version and supports tool capability notifications.
+  
+  Key observations:
+  - Package is available on npm as @mcpcentral/mcp-time v0.0.3
+  - Server responds with proper JSON-RPC 2.0 messages
+  - All 6 tools have well-defined input schemas
+  - Server includes helpful stderr message: "MCP Time Server running on stdio"
