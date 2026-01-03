@@ -1,0 +1,54 @@
+[
+  {
+    "type": "connector",
+    "id": "echo-mcp",
+    "label": "echo-mcp",
+    "meta": {
+      "session_count": 1
+    },
+    "children": [
+      {
+        "type": "session",
+        "id": "4c29bf27-fe5a-4d09-b1ca-82b2306e2280",
+        "label": "4c29bf27... (2 rpcs, 9 events)",
+        "meta": {
+          "connector_id": "echo-mcp",
+          "started_at": "2026-01-03T10:09:38.160Z",
+          "ended_at": "2026-01-03T10:09:40.518Z",
+          "exit_reason": "normal",
+          "duration_ms": 2358,
+          "rpc_count": 2,
+          "event_count": 9
+        },
+        "children": [
+          {
+            "type": "rpc",
+            "id": "2",
+            "label": "✓ tools/list (id=2, 3ms)",
+            "meta": {
+              "method": "tools/list",
+              "success": 1,
+              "error_code": null,
+              "latency_ms": 3,
+              "request_ts": "2026-01-03T10:09:40.510Z",
+              "response_ts": "2026-01-03T10:09:40.513Z"
+            }
+          },
+          {
+            "type": "rpc",
+            "id": "1",
+            "label": "✓ initialize (id=1, 2230ms)",
+            "meta": {
+              "method": "initialize",
+              "success": 1,
+              "error_code": null,
+              "latency_ms": 2230,
+              "request_ts": "2026-01-03T10:09:38.274Z",
+              "response_ts": "2026-01-03T10:09:40.504Z"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
