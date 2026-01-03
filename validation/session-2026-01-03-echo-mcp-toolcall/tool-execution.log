@@ -1,0 +1,15 @@
+[1] Connecting to server...
+Server started. Waiting for client connection...
+[2] Connected
+[3] Calling echo_tool with input: 'Hello from POPL validation'
+[4] Tool response:
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Echo: Hello from POPL validation"
+    }
+  ],
+  "isError": false
+}
+[5] Connection closed
