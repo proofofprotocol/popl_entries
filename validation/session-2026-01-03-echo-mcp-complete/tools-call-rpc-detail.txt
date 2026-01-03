@@ -1,0 +1,50 @@
+════════════════════════════════════════════════════════════
+RPC: tools/call
+════════════════════════════════════════════════════════════
+
+Info:
+  RPC ID:      2
+  Session:     00f1b764-528......
+  Connector:   echo-mcp
+  Status:      OK
+
+Timing:
+  Request:     2026-01-03T13:46:42.884Z
+  Response:    2026-01-03T13:46:42.887Z
+  Latency:     3ms
+
+Size:
+  Request:     125B
+  Response:    119B
+
+────────────────────────────────────────────────────────────
+Request:
+────────────────────────────────────────────────────────────
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "method": "tools/call",
+  "params": {
+    "name": "echo_tool",
+    "arguments": {
+      "input": "Complete validation test"
+    }
+  }
+}
+
+────────────────────────────────────────────────────────────
+Response:
+────────────────────────────────────────────────────────────
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Echo: Complete validation test"
+      }
+    ],
+    "isError": false
+  },
+  "jsonrpc": "2.0",
+  "id": 2
+}

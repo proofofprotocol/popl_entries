@@ -1,0 +1,95 @@
+popl:
+  spec: popl-entry-v0.0
+
+entry:
+  id: session-2026-01-03-echo-mcp-complete
+  title: "Validation: Echo MCP Server Complete (tool/call included)"
+  observed_at: "2026-01-03T13:46:31Z"
+
+target:
+  type: mcp-server
+  name: "@muhtalipdede/echo-mcp-server"
+  version: "0.0.6"
+  status: "success"
+
+trust:
+  level: 0
+  label: "Recorded"
+
+artifacts:
+  - path: events.json
+    hash: "sha256:f2ef138b09583dcae44978627e6914fd8922177a7deb5eaf61443a82ad593e7f"
+    format: "jsonl"
+    event_count: 7
+  - path: tree.json
+    hash: "sha256:fa39d79d2a80e01a6bab7de9a7793e5c41558520a01be8e5557a1e896408eddf"
+    format: "json"
+  - path: tools-call-rpc-detail.txt
+    hash: "sha256:fa9dcee2e6caf657683e2b654c1f7fe5f5b73e3e7a8a4cab03e404bf9ac3b017"
+    format: "text"
+  - path: validation-run.log
+    hash: "sha256:9b391e33725a97f8684f250fd0b8677fffa5c30a3845b2511c78e71cfbc68104"
+    format: "text"
+
+findings:
+  - type: "complete_validation_success"
+    severity: "info"
+    message: "Full MCP server lifecycle validated including tool execution"
+    details:
+      scan: "initialize + tools/list completed"
+      tool_discovery: "1 tool (echo_tool) found"
+      tool_execution: "tools/call successful"
+      session_recording: "All RPCs recorded"
+  
+  - type: "tool_call_execution"
+    severity: "info"
+    message: "echo_tool invoked successfully via tools/call"
+    details:
+      input: "Complete validation test"
+      output: "Echo: Complete validation test"
+      latency_ms: 3
+      session: "00f1b764"
+      rpc_id: 2
+
+  - type: "session_persistence"
+    severity: "info"
+    message: "5 sessions recorded in database"
+    details:
+      total_sessions: 5
+      total_rpcs: 10
+      tool_calls: 2
+      tool_lists: 3
+
+validation_environment:
+  tool: "proofscan"
+  tool_version: "0.9.2"
+  node_version: "v20.19.6"
+  npm_version: "10.8.2"
+  protocol_version: "2024-11-05"
+  primary_session: "00f1b764-c2d1-425a-959b-fd32be64e6b8"
+
+validation_steps:
+  - step: "scan start"
+    result: "success"
+    tools_found: 1
+  - step: "tool ls"
+    result: "success"
+    tools_listed: 1
+  - step: "tool show"
+    result: "success"
+    schema_retrieved: true
+  - step: "tool call"
+    result: "success"
+    execution_verified: true
+  - step: "view events"
+    result: "success"
+    events_displayed: 10
+  - step: "tree display"
+    result: "success"
+    sessions_shown: 5
+
+notes: |
+  Complete validation of echo MCP server including tool execution via tools/call.
+  Previous validation sessions only covered initialization and tool discovery.
+  This session demonstrates full protocol lifecycle: connect, initialize, 
+  list tools, show schema, call tool, verify recording.

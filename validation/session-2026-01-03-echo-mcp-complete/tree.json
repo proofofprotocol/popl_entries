@@ -1,0 +1,222 @@
+[
+  {
+    "type": "connector",
+    "id": "echo-mcp",
+    "label": "echo-mcp",
+    "meta": {
+      "session_count": 5
+    },
+    "children": [
+      {
+        "type": "session",
+        "id": "00f1b764-528c-458f-ae71-cf7340b76da0",
+        "label": "00f1b764... (2 rpcs, 7 events)",
+        "meta": {
+          "connector_id": "echo-mcp",
+          "started_at": "2026-01-03T13:46:41.559Z",
+          "ended_at": "2026-01-03T13:46:42.891Z",
+          "exit_reason": "normal",
+          "duration_ms": 1332,
+          "rpc_count": 2,
+          "event_count": 7
+        },
+        "children": [
+          {
+            "type": "rpc",
+            "id": "2",
+            "label": "✓ tools/call (id=2, 3ms)",
+            "meta": {
+              "method": "tools/call",
+              "success": 1,
+              "error_code": null,
+              "latency_ms": 3,
+              "request_ts": "2026-01-03T13:46:42.884Z",
+              "response_ts": "2026-01-03T13:46:42.887Z"
+            }
+          },
+          {
+            "type": "rpc",
+            "id": "1",
+            "label": "✓ initialize (id=1, 1201ms)",
+            "meta": {
+              "method": "initialize",
+              "success": 1,
+              "error_code": null,
+              "latency_ms": 1201,
+              "request_ts": "2026-01-03T13:46:41.677Z",
+              "response_ts": "2026-01-03T13:46:42.878Z"
+            }
+          }
+        ]
+      },
+      {
+        "type": "session",
+        "id": "e52c81c4-449d-4538-9c92-c8f44e522120",
+        "label": "e52c81c4... (2 rpcs, 7 events)",
+        "meta": {
+          "connector_id": "echo-mcp",
+          "started_at": "2026-01-03T13:46:38.991Z",
+          "ended_at": "2026-01-03T13:46:40.133Z",
+          "exit_reason": "normal",
+          "duration_ms": 1142,
+          "rpc_count": 2,
+          "event_count": 7
+        },
+        "children": [
+          {
+            "type": "rpc",
+            "id": "2",
+            "label": "✓ tools/list (id=2, 2ms)",
+            "meta": {
+              "method": "tools/list",
+              "success": 1,
+              "error_code": null,
+              "latency_ms": 2,
+              "request_ts": "2026-01-03T13:46:40.129Z",
+              "response_ts": "2026-01-03T13:46:40.131Z"
+            }
+          },
+          {
+            "type": "rpc",
+            "id": "1",
+            "label": "✓ initialize (id=1, 1018ms)",
+            "meta": {
+              "method": "initialize",
+              "success": 1,
+              "error_code": null,
+              "latency_ms": 1018,
+              "request_ts": "2026-01-03T13:46:39.108Z",
+              "response_ts": "2026-01-03T13:46:40.126Z"
+            }
+          }
+        ]
+      },
+      {
+        "type": "session",
+        "id": "8e147ade-818f-40cd-9839-a384d324d3e1",
+        "label": "8e147ade... (2 rpcs, 7 events)",
+        "meta": {
+          "connector_id": "echo-mcp",
+          "started_at": "2026-01-03T13:46:35.932Z",
+          "ended_at": "2026-01-03T13:46:37.397Z",
+          "exit_reason": "normal",
+          "duration_ms": 1465,
+          "rpc_count": 2,
+          "event_count": 7
+        },
+        "children": [
+          {
+            "type": "rpc",
+            "id": "2",
+            "label": "✓ tools/list (id=2, 4ms)",
+            "meta": {
+              "method": "tools/list",
+              "success": 1,
+              "error_code": null,
+              "latency_ms": 4,
+              "request_ts": "2026-01-03T13:46:37.389Z",
+              "response_ts": "2026-01-03T13:46:37.393Z"
+            }
+          },
+          {
+            "type": "rpc",
+            "id": "1",
+            "label": "✓ initialize (id=1, 1332ms)",
+            "meta": {
+              "method": "initialize",
+              "success": 1,
+              "error_code": null,
+              "latency_ms": 1332,
+              "request_ts": "2026-01-03T13:46:36.050Z",
+              "response_ts": "2026-01-03T13:46:37.382Z"
+            }
+          }
+        ]
+      },
+      {
+        "type": "session",
+        "id": "07d1a85e-c31e-4edc-862b-611a6f2d5d0c",
+        "label": "07d1a85e... (2 rpcs, 9 events)",
+        "meta": {
+          "connector_id": "echo-mcp",
+          "started_at": "2026-01-03T13:46:33.026Z",
+          "ended_at": "2026-01-03T13:46:34.397Z",
+          "exit_reason": "normal",
+          "duration_ms": 1371,
+          "rpc_count": 2,
+          "event_count": 9
+        },
+        "children": [
+          {
+            "type": "rpc",
+            "id": "2",
+            "label": "✓ tools/list (id=2, 4ms)",
+            "meta": {
+              "method": "tools/list",
+              "success": 1,
+              "error_code": null,
+              "latency_ms": 4,
+              "request_ts": "2026-01-03T13:46:34.387Z",
+              "response_ts": "2026-01-03T13:46:34.391Z"
+            }
+          },
+          {
+            "type": "rpc",
+            "id": "1",
+            "label": "✓ initialize (id=1, 1240ms)",
+            "meta": {
+              "method": "initialize",
+              "success": 1,
+              "error_code": null,
+              "latency_ms": 1240,
+              "request_ts": "2026-01-03T13:46:33.140Z",
+              "response_ts": "2026-01-03T13:46:34.380Z"
+            }
+          }
+        ]
+      },
+      {
+        "type": "session",
+        "id": "ca3b2118-02ff-47eb-8fe7-17fa1aaffe22",
+        "label": "ca3b2118... (2 rpcs, 7 events)",
+        "meta": {
+          "connector_id": "echo-mcp",
+          "started_at": "2026-01-03T13:42:52.321Z",
+          "ended_at": "2026-01-03T13:42:53.708Z",
+          "exit_reason": "normal",
+          "duration_ms": 1387,
+          "rpc_count": 2,
+          "event_count": 7
+        },
+        "children": [
+          {
+            "type": "rpc",
+            "id": "2",
+            "label": "✓ tools/call (id=2, 3ms)",
+            "meta": {
+              "method": "tools/call",
+              "success": 1,
+              "error_code": null,
+              "latency_ms": 3,
+              "request_ts": "2026-01-03T13:42:53.701Z",
+              "response_ts": "2026-01-03T13:42:53.704Z"
+            }
+          },
+          {
+            "type": "rpc",
+            "id": "1",
+            "label": "✓ initialize (id=1, 1251ms)",
+            "meta": {
+              "method": "initialize",
+              "success": 1,
+              "error_code": null,
+              "latency_ms": 1251,
+              "request_ts": "2026-01-03T13:42:52.444Z",
+              "response_ts": "2026-01-03T13:42:53.695Z"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
