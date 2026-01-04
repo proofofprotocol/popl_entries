@@ -1,0 +1,24 @@
+=== MCP Client → Proofscan Proxy Test ===
+
+1. Starting proofscan proxy transport...
+2. Connecting client to proxy...
+   ✓ Connected
+
+   Initialize latency: 2407ms
+
+3. Listing tools through proxy...
+   ✓ Found 1 tool(s):
+     - echo-mcp__echo_tool: Echoes the input back to the user.
+   List latency: 2ms
+
+4. Calling tool: echo-mcp__echo_tool
+   Input: "POPL proxy mode validation test"
+   Output: "Echo: POPL proxy mode validation test"
+   Call latency: 1300ms
+
+✓ Tool call SUCCESS: Output matches expected value
+
+5. Closing connection...
+   ✓ Connection closed
+
+=== Test Complete (3732ms total) ===

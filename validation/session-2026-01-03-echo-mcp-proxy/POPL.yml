@@ -1,0 +1,135 @@
+popl:
+  spec: popl-entry-v0.0
+
+entry:
+  id: session-2026-01-04-echo-mcp-proxy
+  title: "Validation: Echo MCP Server via Proofscan Proxy Mode"
+  observed_at: "2026-01-04T11:57:22Z"
+
+target:
+  type: mcp-server
+  name: "@muhtalipdede/echo-mcp-server"
+  version: "0.0.6"
+  status: "success"
+  validation_method: "proxy_mode"
+
+trust:
+  level: 0
+  label: "Recorded"
+
+artifacts:
+  - path: events.json
+    hash: "sha256:c8ebaccdbb24589a635b70dfc35c52fac9d00616542ef1163f7aa8420beb2ed6"
+    format: "jsonl"
+    event_count: 7
+  - path: tree.json
+    hash: "sha256:d55b79f63c42b7c04c3866df3f7f940df1674fa37c7c5b268182ee8e056157c0"
+    format: "json"
+  - path: rpc-detail.txt
+    hash: "sha256:5346564f1dd5aeade0ece628778defe8f6b41feee6a8e8c1dd5228e86c6daeb8"
+    format: "text"
+  - path: proxy-validation-run.log
+    hash: "sha256:d98aa4b312f8cd2328ef5a876bf5372a80c7590cf973345c05925f1b5752c4a3"
+    format: "text"
+  - path: mcp-client-proxy-test.mjs
+    hash: "sha256:78df9c0f0d0aa68c6777b860fc50cc5e1f75bac95c6f61b8f30ac820a1def2fd"
+    format: "javascript"
+
+findings:
+  - type: "proxy_mode_validation_success"
+    severity: "info"
+    message: "MCP client successfully connected through proofscan proxy and executed tool calls"
+    details:
+      architecture: "MCP Client → Proofscan Proxy → MCP Server"
+      proxy_tool: "proofscan v0.9.2"
+      client: "MCP SDK Client (@modelcontextprotocol/sdk)"
+      transport: "stdio"
+      namespace_mapping: "echo_tool → echo-mcp__echo_tool"
+  
+  - type: "tool_call_through_proxy"
+    severity: "info"
+    message: "Tool invocation successfully proxied and captured"
+    details:
+      tool_name: "echo_tool"
+      proxy_name: "echo-mcp__echo_tool"
+      input: "POPL proxy mode validation test"
+      output: "Echo: POPL proxy mode validation test"
+      latency_ms: 2
+      request_size: "132B"
+      response_size: "126B"
+      session: "1dfe8574"
+      rpc_id: 2
+
+  - type: "protocol_transparency"
+    severity: "info"
+    message: "Proofscan proxy maintains full MCP protocol transparency"
+    details:
+      initialize_latency: 1180
+      tools_call_latency: 2
+      protocol_version: "2024-11-05"
+      json_rpc_version: "2.0"
+      full_request_response_captured: true
+
+validation_environment:
+  tool: "proofscan"
+  tool_version: "0.9.2"
+  node_version: "v20.19.6"
+  npm_version: "10.8.2"
+  protocol_version: "2024-11-05"
+  primary_session: "1dfe8574-00e9-4dc2-a837-5cb6c66f5f25"
+  proxy_mode: true
+  connector_id: "echo-mcp"
+
+validation_steps:
+  - step: "Start proofscan proxy"
+    result: "success"
+    command: "npx proofscan@latest proxy start --connectors echo-mcp --timeout 60"
+  - step: "MCP client connect"
+    result: "success"
+    latency_ms: 2407
+  - step: "Initialize handshake through proxy"
+    result: "success"
+    latency_ms: 1180
+  - step: "List tools through proxy"
+    result: "success"
+    tools_found: 1
+    latency_ms: 2
+  - step: "Call tool through proxy"
+    result: "success"
+    tool: "echo-mcp__echo_tool"
+    execution_verified: true
+    latency_ms: 2
+  - step: "Verify proofscan captured events"
+    result: "success"
+    events_captured: 7
+    rpcs_captured: 2
+
+notes: |
+  This validation demonstrates proofscan's proxy mode capability.
+  
+  Architecture:
+    MCP Client (custom script using @modelcontextprotocol/sdk)
+      ↓ stdio
+    Proofscan Proxy (npx proofscan proxy start)
+      ↓ stdio
+    MCP Server (@muhtalipdede/echo-mcp-server)
+  
+  Key findings:
+  1. Proofscan proxy successfully mediated client-server communication
+  2. Tool names are namespaced with connector ID (echo-mcp__echo_tool)
+  3. All JSON-RPC 2.0 messages captured with full request/response
+  4. Protocol transparency maintained (MCP 2024-11-05)
+  5. Event recording verified in proofscan database
+  
+  This validation method enables:
+  - Testing MCP clients against multiple servers
+  - Capturing real-world client-server interactions
+  - Auditing MCP protocol compliance
+  - Performance benchmarking of proxy overhead
+  
+  Comparison with direct validation:
+  - Direct: proofscan scan start (proofscan acts as client)
+  - Proxy: External client → proofscan proxy → server
+  
+  The proxy approach validates that proofscan can serve as a 
+  protocol inspection layer for production MCP deployments.

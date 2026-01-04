@@ -1,0 +1,50 @@
+════════════════════════════════════════════════════════════
+RPC: tools/call
+════════════════════════════════════════════════════════════
+
+Info:
+  RPC ID:      2
+  Session:     1dfe8574-00e......
+  Connector:   echo-mcp
+  Status:      OK
+
+Timing:
+  Request:     2026-01-04T11:57:22.576Z
+  Response:    2026-01-04T11:57:22.578Z
+  Latency:     2ms
+
+Size:
+  Request:     132B
+  Response:    126B
+
+────────────────────────────────────────────────────────────
+Request:
+────────────────────────────────────────────────────────────
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "method": "tools/call",
+  "params": {
+    "name": "echo_tool",
+    "arguments": {
+      "input": "POPL proxy mode validation test"
+    }
+  }
+}
+
+────────────────────────────────────────────────────────────
+Response:
+────────────────────────────────────────────────────────────
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Echo: POPL proxy mode validation test"
+      }
+    ],
+    "isError": false
+  },
+  "jsonrpc": "2.0",
+  "id": 2
+}
