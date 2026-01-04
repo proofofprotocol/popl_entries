@@ -2,7 +2,19 @@
 
 **[日本語版はこちら](README.ja.md)**
 
-Public ledger of POPL (Proof of Protocol Ledger) entries.
+Public ledger of **POPL (Public Observable Proof Ledger)** entries.
+
+> **What is POPL?**
+>
+> POPL stands for **Public Observable Proof Ledger**.
+>
+> It was originally conceived as **Proof of Protocol Ledger** (the origin name),
+> focusing on protocol-level behavior evidence. As the project evolved toward
+> public observability and publishable evidence, the name naturally expanded to
+> *Public Observable Proof Ledger*.
+>
+> In this project, "ledger" means recording append-only, verifiable evidence
+> (sanitized artifacts + cryptographic hashes), not a simple export or log dump.
 
 ## Purpose
 
